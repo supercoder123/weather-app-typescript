@@ -15,7 +15,7 @@ export default observer(() => {
   const [position, error] = useUserLocation();
 
   useEffect(() => {
-    if (!isEmpty(position)) {
+    if (!isEmpty(position) && !error) {
       WeatherStore.fetchWeatherData(position);
     }
   }, [position]);
