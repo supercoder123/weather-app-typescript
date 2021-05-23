@@ -1,0 +1,9 @@
+@import '../../variables.scss';
+
+.sidebar {
+  display: block;
+  background: $sidebarColor;
+  height: 100vh;
+  min-width: 460px;
+  color: white;
+}

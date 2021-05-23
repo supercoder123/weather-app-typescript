@@ -1,0 +1,41 @@
+.forecastCard {
+  background: #1E213A;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #E7E7EB;
+  border-radius: 5px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 177px;
+  padding: 18px;
+  margin-right: 26px;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 56px;
+    margin-top: 10px;
+  }
+  .temp {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    span {
+      font-size: 12px;
+    }
+    .min {
+      color: #A09FB1;
+    }
+  }
+}

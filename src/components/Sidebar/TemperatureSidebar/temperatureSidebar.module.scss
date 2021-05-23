@@ -1,0 +1,48 @@
+.imgContainer {
+  min-height:300px;
+}
+.wheatherIcon {
+  display: block;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.weatherStateName {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
+  color: #A09FB1;
+  margin-top: 40px;
+}
+.temp {
+  font-weight: 500;
+  font-size: 144px;
+  line-height: 169px;
+  text-align: center;
+  color: #E7E7EB;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  span {
+    font-size: 40px;
+  }
+}
+.moreDetails {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #88869D;
+}
+.place {
+  display: flex;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: #88869D;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}

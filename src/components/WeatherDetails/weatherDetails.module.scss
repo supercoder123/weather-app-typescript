@@ -1,0 +1,26 @@
+.content {
+  padding: 50px 150px;
+  .row {
+    display: flex;
+  }
+  .pointer {
+    span {
+      font-size: 10px;
+
+    }
+  }
+  .details {
+    display: grid;
+    margin-top: 32px;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #E7E7EB;
+    margin-top: 72px;
+  }
+}

@@ -1,0 +1,27 @@
+.compass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  .pointer {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    margin-right: 8px;
+    border-radius: 50%;
+    font-size: 10px !important;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .pointer {
+    span {
+      font-size: 20px;
+    }
+  }
+  .direction {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #E7E7EB;
+    min-width: 50px;
+  }
+}

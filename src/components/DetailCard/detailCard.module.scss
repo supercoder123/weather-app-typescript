@@ -1,0 +1,19 @@
+.detailCard {
+  background-color: #1E213A;
+  border-radius: 5px;
+  padding: 24px;
+  height: auto;
+  text-align: center;
+  .title {
+    margin-bottom: 18px;
+  }
+  .bigNum {
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    color: #E7E7EB;
+    .units {
+      font-size: 34px;
+    }
+  }
+}

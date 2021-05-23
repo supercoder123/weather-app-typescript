@@ -1,0 +1,26 @@
+.toggle {
+  margin-bottom: 60px;
+  text-align: right;
+  button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    background: #585676;
+    font-size: 18px;
+    line-height: 21px;
+    width: 40px;
+    cursor: pointer;
+    height: 40px;
+    border-radius: 50%;
+  }
+  button:hover {
+    opacity: 0.9;
+  }
+  button:first-child {
+    margin: 10px;
+  }
+  button.active {
+    background: #E7E7EB;
+    color: #110E3C;
+  }
+}

@@ -1,0 +1,46 @@
+.bar {
+  display: block;
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 20px;
+  .numbers {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    span {
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 14px;
+      text-align: center;
+      color: #A09FB1;
+    }
+  }
+  .bars {
+    display: block;
+    width: 100%;
+    position: relative;
+    .backgroundBar {
+      display: block;
+      width: 100%;
+      background: #E7E7EB;
+      height: 8px;
+    }
+    .foregroundBar {
+      bottom: 0;
+      position: absolute;
+      display: block;
+      width: 80%;
+      background: #FFEC65;
+      height: 8px;
+    }
+  }
+  .percentage {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: right;
+    color: #A09FB1; 
+  }
+  
+}
