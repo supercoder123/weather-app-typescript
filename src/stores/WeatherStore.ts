@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { WeatherData } from "./types";
 import axios from "axios";
 import Constants from "../constants";
-import AppStoreInstance, { AppStore } from "./AppStore";
+import AppStoreInstance from "./AppStore";
 
 interface LocationInfo {
   woeid: number;
@@ -20,6 +20,13 @@ export interface Geolocation {
   longitude: number;
 }
 
+interface Places {
+  title: string;
+  location_type: string;
+  woeid: number;
+  latt_long: string;
+}
+
 class WeatherStore {
   public todaysWeather: WeatherData = {} as WeatherData;
   public currentLocationInfo: LocationInfo = {} as LocationInfo;
@@ -27,6 +34,7 @@ class WeatherStore {
   isLoading = false;
   private appStore: AppStore = AppStoreInstance;
   isCelcius: boolean = true;
+  placesList: Places[] = [];
 
   constructor() {
     makeAutoObservable(this);
@@ -40,12 +48,22 @@ class WeatherStore {
     this.currentLocationInfo = response.data[0];
   }
 
-  async fetchWeatherData(position: Geolocation) {
-    this.appStore.setIsLoading(true);
-    await this.fetchLocationByLatLong(position);
-
+  async fetchLocationByQuery(query: string) {
     const response = await axios.get(
-      `https://intense-hollows-87072.herokuapp.com/${Constants.baseURL}location/${this.currentLocationInfo.woeid}`
+      `https://intense-hollows-87072.herokuapp.com/${Constants.baseURL}location/search?query=${query}`
+    );
+    this.placesList = response.data;
+  }
+
+  async fetchWeatherData(position: Geolocation) {
+    await this.fetchLocationByLatLong(position);
+    await this.fetchCurrentLocationData(this.currentLocationInfo.woeid);
+  }
+
+  async fetchCurrentLocationData(woeid: number) {
+    this.appStore.setIsLoading(true);
+    const response = await axios.get(
+      `https://intense-hollows-87072.herokuapp.com/${Constants.baseURL}location/${woeid}`
     );
     [
       this.todaysWeather,
@@ -53,8 +71,6 @@ class WeatherStore {
     ] = response.data.consolidated_weather;
 
     this.todaysWeather.applicable_date = "Today";
-    this.fiveDayPredictions[0].applicable_date = "Tomorrow";
-
     this.appStore.setCurrentDisplayWeather(this.todaysWeather);
     this.appStore.setIsLoading(false);
   }
@@ -76,6 +92,7 @@ class WeatherStore {
   }
 
   convert(temp: number) {
+    console.log(temp);
     return !this.isCelcius
       ? this.degreesToF(temp)
       : this.farenheightToDegrees(temp);

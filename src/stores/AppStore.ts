@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { WeatherData } from "./types";
 
-export class AppStore {
+class AppStore {
   isSearchModeOn = false;
   currentDisplayWeather: WeatherData = {} as WeatherData;
   isLoading = true;
